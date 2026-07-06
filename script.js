@@ -1,3 +1,11 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+import {
+  getDatabase,
+  ref,
+  onValue,
+  update
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-database.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyCUeAAHkaJU1877y-VDq9CzlWnEiLXrErs",
   authDomain: "shoppinglist-3f9ce.firebaseapp.com",
@@ -7,6 +15,9 @@ const firebaseConfig = {
   messagingSenderId: "818016858856",
   appId: "1:818016858856:web:eeb7bcd158ad954c898f5d"
 };
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
 
 const items = [
   { id: "bread", name: "Bread", image: "images/Bread.jpg" },
@@ -29,8 +40,7 @@ const items = [
 ];
 
 const list = document.getElementById("list");
-
-let firebaseUpdate = null;
+const statusRef = ref(db, "shoppingStatus");
 
 function renderList(statusData = {}) {
   list.innerHTML = "";
@@ -55,44 +65,18 @@ function renderList(statusData = {}) {
     const checkbox = card.querySelector("input");
 
     checkbox.addEventListener("change", () => {
-      if (firebaseUpdate) {
-        firebaseUpdate(item.id, checkbox.checked);
-      } else {
-        console.log("Firebase not ready yet.");
-      }
+      update(statusRef, {
+        [item.id]: checkbox.checked
+      });
     });
 
     list.appendChild(card);
   });
 }
 
-// Show the list immediately
 renderList({});
 
-// Connect Firebase after page loads
-async function startFirebase() {
-  try {
-    const firebaseApp = await import("https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js");
-    const firebaseDatabase = await import("https://www.gstatic.com/firebasejs/10.12.5/firebase-database.js");
-
-    const app = firebaseApp.initializeApp(firebaseConfig);
-    const db = firebaseDatabase.getDatabase(app);
-
-    const statusRef = firebaseDatabase.ref(db, "shoppingStatus");
-
-    firebaseUpdate = (itemId, checked) => {
-      firebaseDatabase.update(statusRef, {
-        [itemId]: checked
-      });
-    };
-
-    firebaseDatabase.onValue(statusRef, (snapshot) => {
-      const data = snapshot.val() || {};
-      renderList(data);
-    });
-  } catch (error) {
-    console.error("Firebase failed:", error);
-  }
-}
-
-startFirebase();
+onValue(statusRef, (snapshot) => {
+  const data = snapshot.val() || {};
+  renderList(data);
+});
