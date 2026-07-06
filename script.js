@@ -26,7 +26,7 @@ const items = [
   { id: "milk", name: "Milk", image: "images/Milk.jpg" },
   { id: "soda", name: "Soda", image: "images/Soda.jpg" },
   { id: "rice", name: "Rice", image: "images/Rice.jpg" },
-  { id: "laundry", name: "Laundry Detergent", image: "images/Laundy.jpg" },
+  { id: "laundry", name: "Laundry Detergent", image: "images/Laundry.jpg" },
   { id: "flour", name: "Flour", image: "images/Flour.jpg" },
   { id: "onion", name: "Onion", image: "images/Onion.jpg" },
   { id: "apples", name: "Apples", image: "images/Apples.jpg" },
