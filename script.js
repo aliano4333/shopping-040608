@@ -34,6 +34,9 @@ const items = [
   { id: "kinder", name: "Kinder", image: "images/Kinder.jpg" },
   { id: "lays", name: "Lays", image: "images/Lays.jpg" },
   { id: "oreo", name: "Oreo", image: "images/Oreo.jpg" }
+  { id: "eggplant", name: "Eggplant", image: "images/Eggplant.jpg" },
+  { id: "spaghetti", name: "Spaghetti", image: "images/Spaghetti.jpg" },
+  { id: "raos-sauce", name: "Rao's Sauce", image: "images/Raos.jpg" },
 ];
 
 const list = document.getElementById("list");
