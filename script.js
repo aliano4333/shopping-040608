@@ -20,23 +20,91 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 const items = [
-  { id: "bread", name: "Bread", image: "images/Bread.jpg" },
-  { id: "chicken", name: "Chicken", image: "images/Chicken.jpg" },
-  { id: "eggs", name: "Eggs", image: "images/Eggs.jpg" },
-  { id: "milk", name: "Milk", image: "images/Milk.jpg" },
-  { id: "soda", name: "Soda", image: "images/Soda.jpg" },
-  { id: "rice", name: "Rice", image: "images/Rice.jpg" },
-  { id: "laundry", name: "Laundry Detergent", image: "images/Laundry.jpg" },
-  { id: "flour", name: "Flour", image: "images/Flour.jpg" },
-  { id: "onion", name: "Onion", image: "images/Onion.jpg" },
-  { id: "apples", name: "Apples", image: "images/Apples.jpg" },
-  { id: "cheese", name: "Cheese", image: "images/Cheese.jpg" },
-  { id: "kinder", name: "Kinder", image: "images/Kinder.jpg" },
-  { id: "lays", name: "Lays", image: "images/Lays.jpg" },
-  { id: "oreo", name: "Oreo", image: "images/Oreo.jpg" },
-  { id: "eggplant", name: "Eggplant", image: "images/Eggplant.jpg" },
-  { id: "spaghetti", name: "Spaghetti", image: "images/Spaghetti.jpg" },
-  { id: "raos-sauce", name: "Rao's Sauce", image: "images/Raos.jpg" }
+  {
+    id: "bread",
+    name: "Bread",
+    image: "images/Bread.jpg"
+  },
+  {
+    id: "chicken",
+    name: "Chicken",
+    image: "images/Chicken.jpg"
+  },
+  {
+    id: "eggs",
+    name: "Eggs",
+    image: "images/Eggs.jpg"
+  },
+  {
+    id: "milk",
+    name: "Milk",
+    image: "images/Milk.jpg"
+  },
+  {
+    id: "soda",
+    name: "Soda",
+    image: "images/Soda.jpg"
+  },
+  {
+    id: "rice",
+    name: "Rice",
+    image: "images/Rice.jpg"
+  },
+  {
+    id: "laundry",
+    name: "Laundry Detergent",
+    image: "images/Laundry.jpg"
+  },
+  {
+    id: "flour",
+    name: "Flour",
+    image: "images/Flour.jpg"
+  },
+  {
+    id: "onion",
+    name: "Onion",
+    image: "images/Onion.jpg"
+  },
+  {
+    id: "apples",
+    name: "Apples",
+    image: "images/Apples.jpg"
+  },
+  {
+    id: "cheese",
+    name: "Cheese",
+    image: "images/Cheese.jpg"
+  },
+  {
+    id: "kinder",
+    name: "Kinder",
+    image: "images/Kinder.jpg"
+  },
+  {
+    id: "lays",
+    name: "Lays",
+    image: "images/Lays.jpg"
+  },
+  {
+    id: "oreo",
+    name: "Oreo",
+    image: "images/Oreo.jpg"
+  },
+  {
+    id: "eggplant",
+    name: "Eggplant",
+    image: "images/Eggplant.jpg"
+  },
+  {
+    id: "spaghetti",
+    name: "Spaghetti",
+    image: "images/Spaghetti.jpg"
+  },
+  {
+    id: "raos-sauce",
+    name: "Rao's Sauce",
+    image: "images/Raos.jpg"
+  }
 ];
 
 const list = document.getElementById("list");
